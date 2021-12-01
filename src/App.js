@@ -1,25 +1,48 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const Father = styled.div`
+const Wrapper = styled.div`
   display: flex;
 `;
 
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  50% {
+    transform: rotate(360deg);
+    border-radius: 100px;
+  }
+  100% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  `;
+
+const Emoji = styled.span`
+  font-size: 36px;
 `;
 
-const Circle = styled(Box)`
-  border-radius: 50%;
+const Box = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+  animation: ${rotateAnimation} 3s linear infinite;
+  ${Emoji} {
+    font-size: 40px;
+  }
 `;
 
 function App() {
   return (
-    <Father>
-      <Box bgColor="teal" />
-      <Circle bgColor="tomato" />
-    </Father>
+    <Wrapper>
+      <Box>
+        <Emoji>🥰</Emoji>
+      </Box>
+    </Wrapper>
   );
 }
 
