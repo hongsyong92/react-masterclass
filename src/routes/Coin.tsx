@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import {
   Switch,
   Route,
@@ -179,8 +177,8 @@ function Coin() {
               <span>${infoData?.symbol}</span>
             </OverviewItem>
             <OverviewItem>
-              <span>Open Source:</span>
-              <span>{infoData?.open_source ? "Yes" : "No"}</span>
+              <span>Price:</span>
+              <span>${tickersData?.quotes.USD.price.toFixed(3)}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>
@@ -209,7 +207,7 @@ function Coin() {
               <Price />
             </Route>
             <Route path={`/:id/chart`}>
-              <Chart />
+              <Chart coinId={coinId} />
             </Route>
           </Switch>
         </>
