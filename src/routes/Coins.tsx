@@ -52,9 +52,6 @@ const Img = styled.img`
   margin-right: 10px;
 `;
 
-interface ICoinsProps {
-  toggleDark: () => void;
-}
 interface ICoin {
   id: string;
   name: string;
@@ -65,7 +62,7 @@ interface ICoin {
   type: string;
 }
 
-function Coins({ toggleDark }: ICoinsProps) {
+function Coins() {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   return (
     <Container>
@@ -74,7 +71,7 @@ function Coins({ toggleDark }: ICoinsProps) {
       </Helmet>
       <Header>
         <Title>COIN</Title>
-        <button onClick={toggleDark}>Toggle Dark Mode</button>
+        {/* <button onClick={toggleDark}>Toggle Dark Mode</button> */}
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>
